@@ -9,6 +9,7 @@ const secrets = require('../config/secrets.js');
 
 router.post('/register', (req,res) => {
     let user = req.body;
+
     const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
 
@@ -18,7 +19,6 @@ router.post('/register', (req,res) => {
     })
     .catch(error => {
         res.status(500).json(error);
-
     })
 });
 
@@ -39,7 +39,7 @@ router.post('/login', (req, res) => {
         }
     })
     .catch(err =>{
-        res.status(500).json(error);
+        res.status(500).json(err);
     })
 })
 
