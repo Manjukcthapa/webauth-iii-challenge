@@ -6,6 +6,7 @@ const Users = require("../users/users-models.js");
 const secrets = require("../config/secrets.js");
 
 router.post("/register", (req, res) => {
+  console.log('i am here')
   let user = req.body;
 
   const hash = bcrypt.hashSync(user.password, 10);
@@ -16,6 +17,7 @@ router.post("/register", (req, res) => {
       res.status(201).json(saved);
     })
     .catch(error => {
+      console. error(error)
       res.status(500).json(error);
     });
 });
