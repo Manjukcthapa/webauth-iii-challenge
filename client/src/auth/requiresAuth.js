@@ -11,7 +11,7 @@ export default function(Component) {
     render() {
       const notLoggedIn = <div>Please login to see our users</div>;
 
-      return <>{token ? <Component {...this.props} /> : notLoggedIn}</>;
+      return <div>{token ? <Component {...this.props} /> : notLoggedIn}</div>;
     }
   };
 }

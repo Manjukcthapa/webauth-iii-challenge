@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios"
+import axios from "axios";
 class LogIn extends React.Component {
   state = {
     username: "",
@@ -12,15 +12,14 @@ class LogIn extends React.Component {
     this.setState({ [name]: target.value });
   };
 
-
   handleSubmit = event => {
     event.preventDefault();
     const endpoint = "http://localhost:4000/api/auth/login";
     axios
       .post(endpoint, this.state)
       .then(res => {
-        console.log('RESPONSE', res.data);
-        localStorage.setItem('jwt', res.data.token)
+        console.log("RESPONSE", res.data);
+        localStorage.setItem("jwt", res.data.token);
       })
       .catch(err => {
         console.error("login error", err);
@@ -48,7 +47,7 @@ class LogIn extends React.Component {
             type="text"
             name="password"
           />
-           <button type="submit">Login</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     );
